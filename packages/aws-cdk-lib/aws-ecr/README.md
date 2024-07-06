@@ -186,6 +186,16 @@ const repository = new ecr.Repository(this, 'MyTempRepo', {
 });
 ```
 
+### Image tag immutability
+
+You can set tag immutability on images in our repository using the `imageTagMutability` construct prop.
+
+```ts
+new ecr.Repository(this, 'Repo', {
+  imageTagMutability: ecr.ImageTagMutability.IMMUTABLE,
+});
+```
+
 ## Managing the Resource Policy
 
 You can add statements to the resource policy of the repository using the

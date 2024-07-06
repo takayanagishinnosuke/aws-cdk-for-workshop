@@ -618,6 +618,18 @@ describe('repository', () => {
     });
   });
 
+  test('specify imageTagMutability', () => {
+    const stack = new cdk.Stack();
+  
+    new ecr.Repository(stack, 'MyRepository', {
+       imageTagMutability: ecr.ImageTagMutability.IMMUTABLE,
+    });
+  
+    Template.fromStack(stack).hasResourceProperties('AWS::ECR::Repository', {
+      ImageTagMutability: 'IMMUTABLE',
+    });
+  });
+
   describe('events', () => {
     test('onImagePushed without imageTag creates the correct event', () => {
       const stack = new cdk.Stack();
