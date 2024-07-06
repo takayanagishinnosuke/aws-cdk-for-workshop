@@ -309,7 +309,7 @@ export class Topic extends TopicBase {
       signatureVersion: props.signatureVersion,
       deliveryStatusLogging: Lazy.any({ produce: () => this.renderLoggingConfigs() }, { omitEmptyArray: true }),
       tracingConfig: props.tracingConfig,
-      displayName: props.displayName
+      displayName: props.displayName,
     });
 
     this.topicArn = this.getResourceArnAttribute(resource.ref, {
